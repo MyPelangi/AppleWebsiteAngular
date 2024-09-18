@@ -1,11 +1,61 @@
 import { Component } from '@angular/core';
 
-@Component({
+@Component(
+{
   selector: 'app-body',
   templateUrl: './body.component.html',
   styleUrls: ['./body.component.sass']
 })
-export class BodyComponent {
+export class _bodyComponent
+{
+  products = [
+    {
+      imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpUd5slHL5adwDL8TxpEsESk01qN8dGV0Xeg&s',
+      titleProduct: ' iPhone',
+      summary1: 'Our most powerful cameras yet.',
+      summary2: 'Ultrafast chips.And USB-C',
+      buttonLeft: 'Learn more',
+      buttonRight: 'Shop Iphone'
+    },
+    {
+      imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGMCyKnOdoKVxR53ycgiPS5pphJu44oVcQbPcir98vsZriDgnMAMBw6EV4Kza5s2dj0Gg&usqp=CAU',
+      titleProduct: ' Apple Intelligence',
+      summary1: 'AI For the rest of us.',
+      summary2: 'Coming in beta this fall',
+      buttonLeft: 'Learn more',
+      buttonRight: 'Watch the film'
+    },
+    {
+      imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpUd5slHL5adwDL8TxpEsESk01qN8dGV0Xeg&s',
+      titleProduct: ' iPad Pro',
+      summary1: 'Unbelievably thin. Incredibly powerful.',
+      buttonLeft: 'Learn more',
+      buttonRight: 'Buy'
+    },
+    {
+      imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGMCyKnOdoKVxR53ycgiPS5pphJu44oVcQbPcir98vsZriDgnMAMBw6EV4Kza5s2dj0Gg&usqp=CAU',
+      titleProduct: ' Watch',
+      summary1: 'Series 9',
+      summary2: 'Smarter.Brighter.Mightier',
+      buttonLeft: 'Learn more',
+      buttonRight: 'Shop Iphone'
+    },
+    {
+      imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0p05rsJrFCe2GxnRLXVoXUnJ09QxAY1c0da2yQlIf4Jf8GqXZk4lgL3fqLulyo6BX818&usqp=CAU',
+      titleProduct: ' Card',
+      summary1: 'Get up to 3% Daily cash back with every purchase.',
+      summary2: 'Ultrafast chips.And USB-C',
+      buttonLeft: 'Learn more',
+      buttonRight: 'Apply now'
+    },
+    {
+      imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGMCyKnOdoKVxR53ycgiPS5pphJu44oVcQbPcir98vsZriDgnMAMBw6EV4Kza5s2dj0Gg&usqp=CAU',
+      titleProduct: ' Trade In',
+      summary1: 'Get $170-$620 in credit when you trade in iPhone 11 or higher.',
+      buttonLeft: 'Get your estimate'
+    },
+  ]
+
   figures = [
     {
       position: 1,
@@ -102,7 +152,8 @@ export class BodyComponent {
   slideInterval: any;
   isPaused: boolean = false;
 
-  ngOnInit(): void {
+  ngOnInit(): void
+  {
     // Initialize dots array based on the number of figures
     this.dots = Array.from({ length: this.figures.length }, (_, index) => index);
 
@@ -111,27 +162,31 @@ export class BodyComponent {
   }
 
   // Method to switch to the selected slide when a dot is clicked
-  currentSlide(index: number): void {
+  currentSlide(index: number): void
+  {
     this.currentIndex = index;
-    this.pauseSlideShow(); // Pause the automatic sliding
+    this.pauseSlideShow();
   }
 
   // Helper method to check if the current slide is active
-  isActiveSlide(index: number): boolean {
+  isActiveSlide(index: number): boolean
+  {
     return this.currentIndex === index;
   }
 
   // Start the slideshow (automatic sliding)
-  startSlideShow(): void {
+  startSlideShow(): void
+  {
     this.slideInterval = setInterval(() => {
       this.currentIndex = (this.currentIndex + 1) % this.figures.length;
-    }, 5000); // Change slides every 5 seconds
+    }, 5000);
   }
 
   // Pause the slideshow when a dot is clicked
-  pauseSlideShow(): void {
+  pauseSlideShow(): void
+  {
     setTimeout(() => {
-      this.isPaused = false; // Resume the slide show after a short delay
-    }, 5000); // Resume after 10 seconds of inactivity
+      this.isPaused = false;
+    }, 5000);
   }
 }

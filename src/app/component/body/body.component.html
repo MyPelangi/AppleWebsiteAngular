@@ -1,6 +1,8 @@
 <main>
+
+
     <!-- section vision pro -->
-    <section class="visionpro">
+    <section class="visionPro">
         <figure class="container">
             <img class="img" src="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg" alt="">
             <figcaption class="figcaption">
@@ -29,8 +31,8 @@
     <!-- section macbook -->
     <section class="macbook">
         <figure>
-            <img class="img-macbook" width="300px" src="https://img.freepik.com/free-photo/abstract-autumn-beauty-multi-colored-leaf-vein-pattern-generated-by-ai_188544-9871.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1722384000&semt=ais_hybrid" alt="">
-            <figcaption class="figcapt-macbook">
+            <img class="imgMacbook" width="300px" src="https://img.freepik.com/free-photo/abstract-autumn-beauty-multi-colored-leaf-vein-pattern-generated-by-ai_188544-9871.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1722384000&semt=ais_hybrid" alt="">
+            <figcaption class="macbookCaption">
                 <h2>MacBook Air</h2>
                 <summary>Lean.Mean.M3 machine.</summary>
                 <div class="btn">
@@ -44,73 +46,17 @@
 
     <!-- section products -->
     <section class="products">
-        <div class="container-products">
-            <figure>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpUd5slHL5adwDL8TxpEsESk01qN8dGV0Xeg&s" alt="">
+        <div class="containerProducts">
+            <figure *ngFor="let product of products; let i = index"
+            class="itemProduct">
+                <img [src]="product.imageUrl" alt="">
                 <figcaption>
-                    <h2>iPhone</h2>
-                    <summary>Our most powerful cameras yet.</summary>
-                    <summary>Ultrafast chips.And USB-C</summary>
+                    <h2><i class="fa fa-apple"></i>{{ product.titleProduct }}</h2>
+                    <summary>{{ product.summary1 }}</summary>
+                    <summary>{{ product.summary2 }}</summary>
                     <div class="btn">
-                        <a class="learn" href="">Learn more</a>
-                        <a class="buy" href="">Shop Iphone</a>
-                    </div>
-                </figcaption>
-            </figure>
-            <figure>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGMCyKnOdoKVxR53ycgiPS5pphJu44oVcQbPcir98vsZriDgnMAMBw6EV4Kza5s2dj0Gg&usqp=CAU" alt="">
-                <figcaption>
-                    <h2>Apple Intelligence</h2>
-                    <summary>AI For the rest of us.</summary>
-                    <summary>Coming in beta this fall<sup>1</sup> </summary>
-                    <div class="btn">
-                        <a class="learn" href="">Learn more</a>
-                        <a class="buy" href="">Watch the film</a>
-                    </div>                    
-                </figcaption>
-            </figure>
-            <figure>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpUd5slHL5adwDL8TxpEsESk01qN8dGV0Xeg&s" alt="">
-                <figcaption>
-                    <h2>iPad Pro</h2>
-                    <summary>Unbelievably thin. Incredibly powerful.</summary>
-                    <div class="btn">
-                        <a class="learn" href="">Learn more</a>
-                        <a class="buy" href="">Buy</a>
-                    </div>
-                </figcaption>
-            </figure>
-            <figure>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGMCyKnOdoKVxR53ycgiPS5pphJu44oVcQbPcir98vsZriDgnMAMBw6EV4Kza5s2dj0Gg&usqp=CAU" alt="">
-                <figcaption>
-                    <h2><i class="fa fa-apple"></i> Watch</h2>
-                    <summary>Series 9</summary>
-                    <summary>Smarter.Brighter.Mightier</summary>
-                    <div class="btn">
-                        <a class="learn" href="">Learn more</a>
-                        <a class="buy" href="">Shop Iphone</a>
-                    </div>
-                </figcaption>
-            </figure>
-            <figure>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0p05rsJrFCe2GxnRLXVoXUnJ09QxAY1c0da2yQlIf4Jf8GqXZk4lgL3fqLulyo6BX818&usqp=CAU" alt="">
-                <figcaption>
-                    <h2><i class="fa fa-apple"></i> Card</h2>
-                    <summary>Get up to 3% Daily cash back with every purchase.</summary>
-                    <summary>Ultrafast chips.And USB-C</summary>
-                    <div class="btn">
-                        <a class="learn" href="">Learn more</a>
-                        <a class="buy" href="">Apply now</a>
-                    </div>
-                </figcaption>
-            </figure>
-            <figure>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGMCyKnOdoKVxR53ycgiPS5pphJu44oVcQbPcir98vsZriDgnMAMBw6EV4Kza5s2dj0Gg&usqp=CAU" alt="">
-                <figcaption>
-                    <h2><i class="fa fa-apple"></i> Trade In</h2>
-                    <summary>Get $170-$620 in credit when you trade in iPhone 11 or higher.<sup>2</sup> </summary>
-                    <div class="btn">
-                        <a class="learn" href="">Get your estimate</a>
+                        <a class="learn" href="">{{ product.buttonLeft }}</a>
+                        <a class="buy" href="">{{ product.buttonRight }}</a>
                     </div>
                 </figcaption>
             </figure>
@@ -120,7 +66,7 @@
 
     <!-- section movie -->
     <section class="movie">
-        <div class="container-movie">
+        <div class="containerMovie">
           <figure *ngFor="let figure of figures; let i = index"
             class="item"
             [ngClass]="{'active': isActiveSlide(i)}"
@@ -152,7 +98,7 @@
         --heigth: 236px;
         --quantity: 6;
     ">
-        <div class="container-gallery">
+        <div class="containerGallery">
             <figure style="--position: 1">
                 <div class="gallery-img">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXkDMd6di4nFVmKdzCTzehQRBUBkwvzDHPjA&s" alt="">

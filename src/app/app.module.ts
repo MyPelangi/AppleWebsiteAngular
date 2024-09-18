@@ -4,16 +4,16 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './component/header/header.component';
-import { BodyComponent } from './component/body/body.component';
-import { FooterComponent } from './component/footer/footer.component';
+import { _headerComponent } from './component/header/header.component';
+import { _bodyComponent } from './component/body/body.component';
+import { _footerComponent } from './component/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    BodyComponent,
-    FooterComponent
+    _headerComponent,
+    _bodyComponent,
+    _footerComponent
   ],
   imports: [
     BrowserModule,
