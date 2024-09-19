@@ -1,16 +1,16 @@
 *
     font-family: Arial, Helvetica, sans-serif
-    section.visionPro
-        .container
+    section.SectionVisionPro
+        .FigureContainerVisionPro
             // position: relative
             width: 100%
             height: 100vh
             margin: 0
-            .img
+            .ImgVisionPro
                 width: 100%
                 height: 100%
                 object-fit: cover
-            .figcaption
+            .FigcaptionVisionPro
                 position: absolute
                 top: 70%
                 left: 50%
@@ -29,9 +29,9 @@
                     font-size: 25px
                     font-weight: lighter
                     margin-top: 10px
-                .btn
+                .DivButton
                     margin-top: 20px
-                    .learn
+                    .ALearn
                         display: inline-block
                         margin: 0 5px
                         padding: 10px 20px
@@ -40,9 +40,9 @@
                         text-decoration: none
                         border-radius: 50px
                         font-size: 16px
-                    .learn:hover
+                    .ALearn:hover
                         background-color: #2f93ff
-                    .buy
+                    .ABuy
                         display: inline-block
                         margin: 0 5px
                         padding: 10px 20px
@@ -52,10 +52,10 @@
                         text-decoration: none
                         border-radius: 50px
                         font-size: 16px
-                    .buy:hover
+                    .ABuy:hover
                         background-color: #007aff
                         color: #ffffff
-    section.adds
+    section.SectionAdds
         margin-top: 10px
         figure
             position: relative
@@ -85,22 +85,22 @@
                     text-decoration: none
                     border-radius: 50px
                     font-size: 16px
-                .buy:hover
+                .ABuy:hover
                     background-color: #007aff
                     color: #ffffff
 
-    section.macbook
+    section.SectionMacbook
         margin-top: 10px
         figure
             // position: relative
             width: 100%
             height: 100vh
             margin: 0
-            .imgMacbook
+            .ImgMacbook
                 width: 100%
                 height: 100%
                 object-fit: cover
-            .macbookCaption
+            .FigcaptionMacbook
                 position: relative
                 bottom: 30%
                 left: 50%
@@ -117,9 +117,9 @@
                     font-size: 25px
                     font-weight: lighter
                     margin-top: 10px
-                .btn
+                .DivButton
                     margin-top: 20px
-                    .learn
+                    .ALearn
                         display: inline-block
                         margin: 0 5px
                         padding: 10px 20px
@@ -128,9 +128,9 @@
                         text-decoration: none
                         border-radius: 50px
                         font-size: 16px
-                    .learn:hover
+                    .ALearn:hover
                         background-color: #2f93ff
-                    .buy
+                    .ABuy
                         display: inline-block
                         margin: 0 5px
                         padding: 10px 20px
@@ -140,12 +140,12 @@
                         text-decoration: none
                         border-radius: 50px
                         font-size: 16px
-                    .buy:hover
+                    .ABuy:hover
                         background-color: #007aff
                         color: #ffffff
 
-    section.products
-        .containerProducts
+    section.SectionProducts
+        .DivContainerProducts
             display: grid
             grid-template-columns: auto auto
             gap: 10px
@@ -175,9 +175,9 @@
                         font-size: 20px
                         font-weight: lighter
                         margin-top: 10px
-                    .btn
+                    .DivButton
                         margin-top: 20px
-                        .learn
+                        .ALearn
                             display: inline-block
                             margin: 0 5px
                             padding: 10px 20px
@@ -186,9 +186,9 @@
                             text-decoration: none
                             border-radius: 50px
                             font-size: 16px
-                        .learn:hover
+                        .ALearn:hover
                             background-color: #2f93ff
-                        .buy
+                        .ABuy
                             display: inline-block
                             margin: 0 5px
                             padding: 10px 20px
@@ -198,14 +198,14 @@
                             text-decoration: none
                             border-radius: 50px
                             font-size: 16px
-                        .buy:hover
+                        .ABuy:hover
                             background-color: #007aff
                             color: #ffffff
 
-    section.movie
+    section.SectionMovie
         width: 100%
         height: 550px
-        .containerMovie
+        .DivContainerMovie
             position: relative
             display: flex
             align-items: center
@@ -243,7 +243,7 @@
                     z-index: 1
                     height: auto
                     margin: 50px
-                    .card-detail
+                    .DivCardDetail
                         display: flex
                         gap: 5px
                         a
@@ -308,7 +308,7 @@
 
         //     100%
         //         transform: translateX(-900%)
-        .dot
+        .SpanDot
             cursor: pointer
             height: 10px
             width: 10px
@@ -319,14 +319,14 @@
             transition: background-color 0.6s ease
             &.active-dot
               background-color: #717171
-            &.dot:hover
+            &.SpanDot:hover
               background-color: #717171
 
-    section.gallery
+    section.SectionGallery
         width: 100%
         height: var(--heigth)
         overflow: hidden
-        .containerGallery
+        .DivContainerGallery
             display: flex
             width: 100%
             min-width: calc( var(--width) * var(--quantity) )
@@ -339,7 +339,7 @@
                 height: var(--heigth)
                 animation: autoRun 30s linear infinite
                 animation-delay: calc( (30s / var(--quantity)) * (var(--position) - 1) )
-                .gallery-img
+                .DivGalleryImage
                     img
                         width: 100%
                     a
@@ -357,7 +357,7 @@
                         font-size: 16px
                         padding: 16px 32px
                         border-radius: 30px
-                .gallery-img:hover
+                .DivGalleryImage:hover
                     img
                         filter: brightness(60%)
                         transition: .3s ease

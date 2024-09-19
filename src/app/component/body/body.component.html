@@ -2,15 +2,15 @@
 
 
     <!-- section vision pro -->
-    <section class="visionPro">
-        <figure class="container">
-            <img class="img" src="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg" alt="">
-            <figcaption class="figcaption">
+    <section class="SectionVisionPro">
+        <figure class="FigureContainerVisionPro">
+            <img class="ImgVisionPro" src="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg" alt="">
+            <figcaption class="FigcaptionVisionPro">
                 <h2><i class="fa fa-apple"></i> Vision Pro</h2>
                 <summary>You've never seen everything like this before.</summary>
-                <div class="btn">
-                    <a class="learn" href="">Learn more</a>
-                    <a class="buy" href="">Buy</a>
+                <div class="DivButton">
+                    <a class="ALearn" href="">Learn more</a>
+                    <a class="ABuy" href="">Buy</a>
                 </div>
             </figcaption>
         </figure>
@@ -18,7 +18,7 @@
 
 
     <!-- section adds -->
-    <section class="adds">
+    <section class="SectionAdds">
         <figure>
             <img src="https://img.freepik.com/free-photo/dreamy-aesthetic-color-year-tones-nature-landscape_23-2151393858.jpg" alt="">
             <figcaption>
@@ -29,15 +29,15 @@
 
 
     <!-- section macbook -->
-    <section class="macbook">
+    <section class="SectionMacbook">
         <figure>
-            <img class="imgMacbook" width="300px" src="https://img.freepik.com/free-photo/abstract-autumn-beauty-multi-colored-leaf-vein-pattern-generated-by-ai_188544-9871.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1722384000&semt=ais_hybrid" alt="">
-            <figcaption class="macbookCaption">
+            <img class="ImgMacbook" width="300px" src="https://img.freepik.com/free-photo/abstract-autumn-beauty-multi-colored-leaf-vein-pattern-generated-by-ai_188544-9871.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1722384000&semt=ais_hybrid" alt="">
+            <figcaption class="FigcaptionMacbook">
                 <h2>MacBook Air</h2>
                 <summary>Lean.Mean.M3 machine.</summary>
-                <div class="btn">
-                    <a class="learn" href="">Learn more</a>
-                    <a class="buy" href="">Buy</a>
+                <div class="DivButton">
+                    <a class="ALearn" href="">Learn more</a>
+                    <a class="ABuy" href="">Buy</a>
                 </div>
             </figcaption>
         </figure>
@@ -45,18 +45,18 @@
 
 
     <!-- section products -->
-    <section class="products">
-        <div class="containerProducts">
+    <section class="SectionProducts">
+        <div class="DivContainerProducts">
             <figure *ngFor="let product of products; let i = index"
-            class="itemProduct">
+            class="FigureProducts">
                 <img [src]="product.imageUrl" alt="">
                 <figcaption>
                     <h2><i class="fa fa-apple"></i>{{ product.titleProduct }}</h2>
                     <summary>{{ product.summary1 }}</summary>
                     <summary>{{ product.summary2 }}</summary>
-                    <div class="btn">
-                        <a class="learn" href="">{{ product.buttonLeft }}</a>
-                        <a class="buy" href="">{{ product.buttonRight }}</a>
+                    <div class="DivButton">
+                        <a class="ALearn" href="">{{ product.buttonLeft }}</a>
+                        <a class="ABuy" href="">{{ product.buttonRight }}</a>
                     </div>
                 </figcaption>
             </figure>
@@ -65,15 +65,15 @@
 
 
     <!-- section movie -->
-    <section class="movie">
-        <div class="containerMovie">
+    <section class="SectionMovie">
+        <div class="DivContainerMovie">
           <figure *ngFor="let figure of figures; let i = index"
-            class="item"
+            class="FigureMovie"
             [ngClass]="{'active': isActiveSlide(i)}"
             [style.transform]="'translateX(' + ((i - currentIndex) * 100) + '%)'">
               <img [src]="figure.imageUrl" alt="">
               <figcaption>
-              <div class="card-detail">
+              <div class="DivCardDetail">
                   <a href="">{{ figure.linkText }}</a>
                   <strong>{{ figure.category }}</strong>
                   <p>{{ figure.description }}</p>
@@ -85,7 +85,7 @@
         <!-- The dots/circles -->
         <div style="text-align:center">
           <span *ngFor="let dot of dots; let i = index"
-            class="dot"
+            class="SpanDot"
             [ngClass]="{'active-dot': isActiveSlide(i)}"
             (click)="currentSlide(dot)">
           </span>
@@ -93,14 +93,14 @@
     </section>
 
     <!-- section gallery -->
-    <section class="gallery" style="
+    <section class="SectionGallery" style="
         --width: 413px;
         --heigth: 236px;
         --quantity: 6;
     ">
-        <div class="containerGallery">
+        <div class="DivContainerGallery">
             <figure style="--position: 1">
-                <div class="gallery-img">
+                <div class="DivGalleryImage">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXkDMd6di4nFVmKdzCTzehQRBUBkwvzDHPjA&s" alt="">
                     <a href="">Watch Now</a>
                 </div>
@@ -110,7 +110,7 @@
                 </figcaption>
             </figure>
             <figure style="--position: 2">
-                <div class="gallery-img">
+                <div class="DivGalleryImage">
                     <img src="https://www.gematsu.com/wp-content/uploads/2024/06/Hello-Kitty-Island-Adventure-Announced_06-18-24.jpg" alt="">
                     <a href="">Watch Now</a>
                 </div>
@@ -120,7 +120,7 @@
                 </figcaption>
             </figure>
             <figure style="--position: 3">
-                <div class="gallery-img">
+                <div class="DivGalleryImage">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXkDMd6di4nFVmKdzCTzehQRBUBkwvzDHPjA&s" alt="">
                     <a href="">Watch Now</a>
                 </div>
@@ -130,7 +130,7 @@
                 </figcaption>
             </figure>
             <figure style="--position: 4">
-                <div class="gallery-img">
+                <div class="DivGalleryImage">
                     <img src="https://www.gematsu.com/wp-content/uploads/2024/06/Hello-Kitty-Island-Adventure-Announced_06-18-24.jpg" alt="">
                     <a href="">Watch Now</a>
                 </div>
@@ -140,7 +140,7 @@
                 </figcaption>
             </figure>
             <figure style="--position: 5">
-                <div class="gallery-img">
+                <div class="DivGalleryImage">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXkDMd6di4nFVmKdzCTzehQRBUBkwvzDHPjA&s" alt="">
                     <a href="">Watch Now</a>
                 </div>
@@ -150,7 +150,7 @@
                 </figcaption>
             </figure>
             <figure style="--position: 6">
-                <div class="gallery-img">
+                <div class="DivGalleryImage">
                     <img src="https://www.gematsu.com/wp-content/uploads/2024/06/Hello-Kitty-Island-Adventure-Announced_06-18-24.jpg" alt="">
                     <a href="">Watch Now</a>
                 </div>
