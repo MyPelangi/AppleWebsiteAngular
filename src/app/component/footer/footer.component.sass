@@ -3,7 +3,9 @@ footer
     margin-top: 10px
     font-family: Arial, Helvetica, sans-serif
     .DivContainerFooter
-        padding: 10px 183px
+        padding: 10px 20px
+        max-width: 850px
+        margin: auto
         small
             color: #9b9b9b
         .DivServices
@@ -14,14 +16,74 @@ footer
                 ul
                     list-style-type: none
                     padding: 0px
-                    li
+                    .LiServices
                         margin: 10px 0
                         font-size: 12px
                         strong
                             color: #505050
-                        a
-                            text-decoration: none
-                            color: #9b9b9b
+                        i
+                            display: none
+                    .DivDropdownServices
+                        li
+                            margin: 10px 0
+                            font-size: 12px
+                            a
+                                text-decoration: none
+                                color: #9b9b9b
+
+        .SectionSubscription
+          margin-bottom: 30px
+          p
+            font-size: 1rem
+            font-weight: bold
+            color: #333
+            margin-bottom: 15px
+            text-align: center
+          form
+            display: flex
+            justify-content: center
+            align-items: center
+            gap: 50px
+            margin: auto
+          .DivFormGroup
+            label
+              display: block
+              font-size: 0.8rem
+              color: #666
+              margin-bottom: 5px
+            .DivFormContent
+              display: flex
+              justify-content: center
+              gap: 20px
+              .TextSubscription
+                width: 300px
+                padding: 10px
+                font-size: 0.8rem
+                border: 1px solid #ddd
+                border-radius: 5px
+                transition: border-color 0.3s ease
+                &:focus
+                  border-color: #007bff
+                  outline: none
+                &.is-invalid
+                  border-color: #dc3545
+              .btn
+                padding: 10px 20px
+                font-size: 0.8rem
+                background-color: #007bff
+                border: none
+                border-radius: 4px
+                color: white
+                cursor: pointer
+                transition: background-color 0.3s ease
+                &:hover
+                  background-color: #0056b3
+            .invalid-feedback
+              color: #dc3545
+              font-size: 0.8rem
+              margin-top: 5px
+
+
         section
             margin-bottom: 10px
             small
@@ -43,10 +105,76 @@ footer
                         a
                             text-decoration: none
                             font-size: 12px
-                            color: blue
+                            color: #9b9b9b
                 a
                     text-decoration: none
                     font-size: 12px
                     color: #9b9b9b
 
 
+@media only screen and (max-width: 834px)
+  footer
+    .DivContainerFooter
+      padding: 10px 20px
+      .DivServices
+            display: flex
+            flex-direction: column
+            .DivServicesType
+                ul
+                    border-bottom: 1px solid #9b9b9b
+                    margin: 0
+                    .LiServices
+                        display: flex
+                        justify-content: space-between
+                        cursor: pointer
+                        strong
+                            color: #505050
+                        i
+                            display: contents
+                            position: absolute
+                            right: 0
+                            margin: 15px
+                            transition: 0.3s ease
+                    .DivDropdownServices
+                        max-height: 0 // Start with max-height 0 */
+                        overflow: hidden // Hide overflowing content */
+                        transition: max-height 0.5s ease-out
+                        margin: 0
+                        li
+                            a
+                                text-decoration: none
+                                color: #9b9b9b
+                    .show
+                        max-height: 500px
+
+      .SectionSubscription
+        p
+            font-size: 0.8rem
+        form
+          .DivFormGroup
+            label
+            .DivFormContent
+              display: flex
+              flex-direction: column
+              justify-content: center
+              gap: 30px
+              .TextSubscription
+                width: auto
+          .invalid-feedback
+            position: relative
+            bottom: 68px
+
+      section
+        hr
+          display: none
+        .DivCopywrite
+          display: flex
+          flex-direction: column-reverse
+          justify-content: left
+          align-items: baseline
+          a
+            margin: 10px 0
+          small
+            bottom: 20px
+          ul
+            margin: 5px 0

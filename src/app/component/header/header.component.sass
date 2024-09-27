@@ -16,15 +16,65 @@ header
             display: flex
             justify-content: space-between
             padding: 0px
-            margin: 13px auto
+            align-items: center
+            padding: 13px 30px
+            margin: auto
+            .LiNavAppleIcon
+                  a
+                      text-decoration: none
+                  .AIcon
+                      color: white
+            .DivListMenu
+              display: flex
+              justify-content: space-between
+              gap: 30px
+              width: auto
+              .LiNavSublistMenu
+                  a
+                      text-decoration: none
+                  .AMenu
+                      color: white
+                      font-size: 12px
+                  ul
+                      display: none
+                  .AMenu:hover
             .LiNavSublist
-                a
-                    text-decoration: none
-                .AIcon
-                    color: white
-                .AMenu
-                    color: white
-                    font-size: 12px
-                ul
-                    display: none
-                .AMenu:hover
+                  a
+                      text-decoration: none
+                  .AIcon
+                      color: white
+            .LiHamburger
+              display: none
+              i
+                color: white
+
+@media only screen and (max-width: 834px)
+  header
+    nav
+      .UlNavList
+        width: auto
+        gap: 20px
+        .LiNavAppleIcon
+            flex-grow: 2
+        .DivListMenu
+          display: none
+        .show
+          display: flex
+          flex-direction: column
+          position: fixed
+          top: 44px
+          left: 0
+          width: 100%
+          padding: 0 30px
+          background-color: rgba(22, 22, 23, 0.8)
+          z-index: 1000
+          transition-delay: 5s ease
+          .LiNavSublistMenu
+            .Amenu
+              font-size: 20px
+        .LiHamburger
+          display: block
+
+
+
+

@@ -4,7 +4,7 @@
     <!-- section vision pro -->
     <section class="SectionVisionPro">
         <figure class="FigureContainerVisionPro">
-            <img class="ImgVisionPro" src="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg" alt="">
+            <img class="ImgVisionPro" src="https://img.freepik.com/premium-photo/portrait-woman-with-arms-raised-against-blue-background_1048944-30457597.jpg?ga=GA1.1.1811519676.1727150559" alt="">
             <figcaption class="FigcaptionVisionPro">
                 <h2><i class="fa fa-apple"></i> Vision Pro</h2>
                 <summary>You've never seen everything like this before.</summary>
@@ -20,7 +20,7 @@
     <!-- section adds -->
     <section class="SectionAdds">
         <figure>
-            <img src="https://img.freepik.com/free-photo/dreamy-aesthetic-color-year-tones-nature-landscape_23-2151393858.jpg" alt="">
+            <img src="https://img.freepik.com/premium-photo/ai-assistants-modern-living-white-background_914383-26542.jpg?ga=GA1.1.1811519676.1727150559&semt=ais_hybrid" alt="">
             <figcaption>
                 <a href="">Shop</a>
             </figcaption>
@@ -31,7 +31,7 @@
     <!-- section macbook -->
     <section class="SectionMacbook">
         <figure>
-            <img class="ImgMacbook" width="300px" src="https://img.freepik.com/free-photo/abstract-autumn-beauty-multi-colored-leaf-vein-pattern-generated-by-ai_188544-9871.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1722384000&semt=ais_hybrid" alt="">
+            <img class="ImgMacbook" src="https://img.freepik.com/free-photo/3d-rendering-laptop-nature_23-2151004278.jpg?ga=GA1.1.1811519676.1727150559&semt=ais_hybrid" alt="">
             <figcaption class="FigcaptionMacbook">
                 <h2>MacBook Air</h2>
                 <summary>Lean.Mean.M3 machine.</summary>
@@ -47,16 +47,16 @@
     <!-- section products -->
     <section class="SectionProducts">
         <div class="DivContainerProducts">
-            <figure *ngFor="let product of products; let i = index"
+            <figure *ngFor="let _arrayModelProduct of _arrayModelOfProducts; let i = index"
             class="FigureProducts">
-                <img [src]="product.imageUrl" alt="">
+                <img [src]="_arrayModelProduct.imageUrl" alt="">
                 <figcaption>
-                    <h2><i class="fa fa-apple"></i>{{ product.titleProduct }}</h2>
-                    <summary>{{ product.summary1 }}</summary>
-                    <summary>{{ product.summary2 }}</summary>
+                    <h2><i class="fa fa-apple"></i>{{ _arrayModelProduct.titleProduct }}</h2>
+                    <summary>{{ _arrayModelProduct.summary1 }}</summary>
+                    <summary>{{ _arrayModelProduct.summary2 }}</summary>
                     <div class="DivButton">
-                        <a class="ALearn" href="">{{ product.buttonLeft }}</a>
-                        <a class="ABuy" href="">{{ product.buttonRight }}</a>
+                        <a class="ALearn" href="">{{ _arrayModelProduct.buttonLeft }}</a>
+                        <a class="ABuy" href="">{{ _arrayModelProduct.buttonRight }}</a>
                     </div>
                 </figcaption>
             </figure>
@@ -67,10 +67,10 @@
     <!-- section movie -->
     <section class="SectionMovie">
         <div class="DivContainerMovie">
-          <figure *ngFor="let figure of figures; let i = index"
+          <figure *ngFor="let figure of _arrayModelOfFigures; let i = index"
             class="FigureMovie"
             [ngClass]="{'active': isActiveSlide(i)}"
-            [style.transform]="'translateX(' + ((i - currentIndex) * 100) + '%)'">
+            [style.transform]="'translateX(' + ((i - _numberCurrentIndex) * 100) + '%)'">
               <img [src]="figure.imageUrl" alt="">
               <figcaption>
               <div class="DivCardDetail">
@@ -84,7 +84,7 @@
         </div>
         <!-- The dots/circles -->
         <div style="text-align:center">
-          <span *ngFor="let dot of dots; let i = index"
+          <span *ngFor="let dot of _numberDots; let i = index"
             class="SpanDot"
             [ngClass]="{'active-dot': isActiveSlide(i)}"
             (click)="currentSlide(dot)">
@@ -93,72 +93,23 @@
     </section>
 
     <!-- section gallery -->
-    <section class="SectionGallery" style="
-        --width: 413px;
-        --heigth: 236px;
-        --quantity: 6;
-    ">
+    <section class="SectionGallery">
         <div class="DivContainerGallery">
-            <figure style="--position: 1">
-                <div class="DivGalleryImage">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXkDMd6di4nFVmKdzCTzehQRBUBkwvzDHPjA&s" alt="">
-                    <a href="">Watch Now</a>
-                </div>
-                <figcaption>
-                    <p>Hellokitty Island Adventure</p>
-                    <span><i class="fa fa-apple"></i> Arcade</span>
-                </figcaption>
-            </figure>
-            <figure style="--position: 2">
-                <div class="DivGalleryImage">
-                    <img src="https://www.gematsu.com/wp-content/uploads/2024/06/Hello-Kitty-Island-Adventure-Announced_06-18-24.jpg" alt="">
-                    <a href="">Watch Now</a>
-                </div>
-                <figcaption>
-                    <p>Hellokitty Island Adventure</p>
-                    <span><i class="fa fa-apple"></i> Arcade</span>
-                </figcaption>
-            </figure>
-            <figure style="--position: 3">
-                <div class="DivGalleryImage">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXkDMd6di4nFVmKdzCTzehQRBUBkwvzDHPjA&s" alt="">
-                    <a href="">Watch Now</a>
-                </div>
-                <figcaption>
-                    <p>Hellokitty Island Adventure</p>
-                    <span><i class="fa fa-apple"></i> Arcade</span>
-                </figcaption>
-            </figure>
-            <figure style="--position: 4">
-                <div class="DivGalleryImage">
-                    <img src="https://www.gematsu.com/wp-content/uploads/2024/06/Hello-Kitty-Island-Adventure-Announced_06-18-24.jpg" alt="">
-                    <a href="">Watch Now</a>
-                </div>
-                <figcaption>
-                    <p>Hellokitty Island Adventure</p>
-                    <span><i class="fa fa-apple"></i> Arcade</span>
-                </figcaption>
-            </figure>
-            <figure style="--position: 5">
-                <div class="DivGalleryImage">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXkDMd6di4nFVmKdzCTzehQRBUBkwvzDHPjA&s" alt="">
-                    <a href="">Watch Now</a>
-                </div>
-                <figcaption>
-                    <p>Hellokitty Island Adventure</p>
-                    <span><i class="fa fa-apple"></i> Arcade</span>
-                </figcaption>
-            </figure>
-            <figure style="--position: 6">
-                <div class="DivGalleryImage">
-                    <img src="https://www.gematsu.com/wp-content/uploads/2024/06/Hello-Kitty-Island-Adventure-Announced_06-18-24.jpg" alt="">
-                    <a href="">Watch Now</a>
-                </div>
-                <figcaption>
-                    <p>Hellokitty Island Adventure</p>
-                    <span><i class="fa fa-apple"></i> Arcade</span>
-                </figcaption>
-            </figure>
+            <div class="DivGalleryTrack">
+              <figure *ngFor="let gallery of _arrayModelOfGallery; let i = index"
+              class="FigureGallery">
+                  <div class="DivGalleryImage">
+                      <img [src]="gallery.imgUrl" alt="">
+                      <a href="">{{ gallery.action }}</a>
+                  </div>
+                  <figcaption>
+                      <p>{{ gallery.title }}</p>
+                      <span><i class="fa fa-apple"></i>{{ gallery.category }}</span>
+                  </figcaption>
+              </figure>
+            </div>
         </div>
     </section>
 </main>
+
+<!-- liquid sampai 360px -->

@@ -6,11 +6,10 @@ import { Component } from '@angular/core';
   templateUrl: './body.component.html',
   styleUrls: ['./body.component.sass']
 })
-export class _bodyComponent
-{
-  products = [
+export class BodyComponent{
+  _arrayModelOfProducts = [
     {
-      imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpUd5slHL5adwDL8TxpEsESk01qN8dGV0Xeg&s',
+      imageUrl: 'https://img.freepik.com/premium-photo/phone-with-colors-sun-it_273179-6661.jpg?ga=GA1.1.1811519676.1727150559&semt=ais_hybrid',
       titleProduct: ' iPhone',
       summary1: 'Our most powerful cameras yet.',
       summary2: 'Ultrafast chips.And USB-C',
@@ -18,7 +17,7 @@ export class _bodyComponent
       buttonRight: 'Shop Iphone'
     },
     {
-      imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGMCyKnOdoKVxR53ycgiPS5pphJu44oVcQbPcir98vsZriDgnMAMBw6EV4Kza5s2dj0Gg&usqp=CAU',
+      imageUrl: 'https://img.freepik.com/free-photo/3d-robot-hand-background-ai-technology-side-view_53876-129789.jpg?semt=ais_hybrid',
       titleProduct: ' Apple Intelligence',
       summary1: 'AI For the rest of us.',
       summary2: 'Coming in beta this fall',
@@ -26,14 +25,14 @@ export class _bodyComponent
       buttonRight: 'Watch the film'
     },
     {
-      imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpUd5slHL5adwDL8TxpEsESk01qN8dGV0Xeg&s',
+      imageUrl: 'https://img.freepik.com/free-vector/digital-tablet-mockup-brown-table_53876-118309.jpg?ga=GA1.1.1811519676.1727150559&semt=ais_hybrid',
       titleProduct: ' iPad Pro',
       summary1: 'Unbelievably thin. Incredibly powerful.',
       buttonLeft: 'Learn more',
       buttonRight: 'Buy'
     },
     {
-      imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGMCyKnOdoKVxR53ycgiPS5pphJu44oVcQbPcir98vsZriDgnMAMBw6EV4Kza5s2dj0Gg&usqp=CAU',
+      imageUrl: 'https://img.freepik.com/premium-photo/apple-watch-mockup-with-black-screen-copy-space_380557-586.jpg?ga=GA1.1.1811519676.1727150559&semt=ais_hybrid',
       titleProduct: ' Watch',
       summary1: 'Series 9',
       summary2: 'Smarter.Brighter.Mightier',
@@ -41,7 +40,7 @@ export class _bodyComponent
       buttonRight: 'Shop Iphone'
     },
     {
-      imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0p05rsJrFCe2GxnRLXVoXUnJ09QxAY1c0da2yQlIf4Jf8GqXZk4lgL3fqLulyo6BX818&usqp=CAU',
+      imageUrl: 'https://img.freepik.com/premium-vector/futuristic-glowing-low-polygonal-credit-card-isolated-dark-blue-background_67515-520.jpg?ga=GA1.1.1811519676.1727150559&semt=ais_hybrid',
       titleProduct: ' Card',
       summary1: 'Get up to 3% Daily cash back with every purchase.',
       summary2: 'Ultrafast chips.And USB-C',
@@ -49,14 +48,16 @@ export class _bodyComponent
       buttonRight: 'Apply now'
     },
     {
-      imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGMCyKnOdoKVxR53ycgiPS5pphJu44oVcQbPcir98vsZriDgnMAMBw6EV4Kza5s2dj0Gg&usqp=CAU',
-      titleProduct: ' Trade In',
-      summary1: 'Get $170-$620 in credit when you trade in iPhone 11 or higher.',
-      buttonLeft: 'Get your estimate'
+      imageUrl: 'https://img.freepik.com/premium-photo/wireless-earbuds-with-compact-charging-case_724205-2079.jpg?ga=GA1.1.1811519676.1727150559&semt=ais_hybrid',
+      titleProduct: ' AirPods 4',
+      summary1: 'Iconic. Now supersonic.',
+      summary2: 'Available with Active Noise Cancellation.',
+      buttonLeft: 'Learn more',
+      buttonRight: 'Buy'
     },
   ]
 
-  figures = [
+  _arrayModelOfFigures = [
     {
       position: 1,
       imageUrl: 'https://webneel.com/daily/sites/default/files/images/daily/01-2019/4-movie-poster-design-india-tamil-jetlee-prathoolnt.jpg',
@@ -136,49 +137,44 @@ export class _bodyComponent
       category: 'Action',
       description: 'The big 4',
       logoUrl: 'https://www.reviews.org/app/uploads/2020/12/apple-tv-300x188.png'
-    },
-    {
-      position: 1,
-      imageUrl: 'https://webneel.com/daily/sites/default/files/images/daily/01-2019/4-movie-poster-design-india-tamil-jetlee-prathoolnt.jpg',
-      linkText: 'Stream Now',
-      category: 'Crime',
-      description: 'Presume nothing.',
-      logoUrl: 'https://www.reviews.org/app/uploads/2020/12/apple-tv-300x188.png'
     }
   ]
 
-  dots: number[] = [];
-  currentIndex: number = 0;
-  slideInterval: any;
-  isPaused: boolean = false;
+
+  _numberDots: number[] = [];
+  _numberCurrentIndex: number = 0;
+  _anySlideInterval: any;
+  _booleanIsPause: boolean = false;
 
   ngOnInit(): void
   {
     // Initialize dots array based on the number of figures
-    this.dots = Array.from({ length: this.figures.length }, (_, index) => index);
+    this._numberDots = Array.from({ length: this._arrayModelOfFigures.length }, (_, index) => index);
 
     // Start the automatic sliding
     this.startSlideShow();
+
+    this.duplicateImages();
   }
 
   // Method to switch to the selected slide when a dot is clicked
   currentSlide(index: number): void
   {
-    this.currentIndex = index;
+    this._numberCurrentIndex = index;
     this.pauseSlideShow();
   }
 
   // Helper method to check if the current slide is active
   isActiveSlide(index: number): boolean
   {
-    return this.currentIndex === index;
+    return this._numberCurrentIndex === index;
   }
 
   // Start the slideshow (automatic sliding)
   startSlideShow(): void
   {
-    this.slideInterval = setInterval(() => {
-      this.currentIndex = (this.currentIndex + 1) % this.figures.length;
+    this._anySlideInterval = setInterval(() => {
+      this._numberCurrentIndex = (this._numberCurrentIndex + 1) % this._arrayModelOfFigures.length;
     }, 5000);
   }
 
@@ -186,7 +182,58 @@ export class _bodyComponent
   pauseSlideShow(): void
   {
     setTimeout(() => {
-      this.isPaused = false;
+      this._booleanIsPause = false;
     }, 5000);
+  }
+
+
+  _numberOfCurrentSlide: number = 0;
+  _arrayModelOfGallery = [
+    {
+      imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXkDMd6di4nFVmKdzCTzehQRBUBkwvzDHPjA&s',
+      title: 'Hellokitty Island Adventure',
+      link: '#',
+      category: ' Arcade',
+      action: 'Watch Now'
+    },
+    {
+      imgUrl: 'https://www.gematsu.com/wp-content/uploads/2024/06/Hello-Kitty-Island-Adventure-Announced_06-18-24.jpg',
+      title: 'Hellokitty Island Adventure',
+      link: '#',
+      category: 'Arcade',
+      action: 'Watch Now'
+    },
+    {
+      imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXkDMd6di4nFVmKdzCTzehQRBUBkwvzDHPjA&s',
+      title: 'Hellokitty Island Adventure',
+      link: '#',
+      category: ' Arcade',
+      action: 'Watch Now'
+    },
+    {
+      imgUrl: 'https://www.gematsu.com/wp-content/uploads/2024/06/Hello-Kitty-Island-Adventure-Announced_06-18-24.jpg',
+      title: 'Hellokitty Island Adventure',
+      link: '#',
+      category: 'Arcade',
+      action: 'Watch Now'
+    },
+    {
+      imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXkDMd6di4nFVmKdzCTzehQRBUBkwvzDHPjA&s',
+      title: 'Hellokitty Island Adventure',
+      link: '#',
+      category: ' Arcade',
+      action: 'Watch Now'
+    },
+    {
+      imgUrl: 'https://www.gematsu.com/wp-content/uploads/2024/06/Hello-Kitty-Island-Adventure-Announced_06-18-24.jpg',
+      title: 'Hellokitty Island Adventure',
+      link: '#',
+      category: 'Arcade',
+      action: 'Watch Now'
+    }
+  ]
+
+  duplicateImages() {
+    this._arrayModelOfGallery = [...this._arrayModelOfGallery, ...this._arrayModelOfGallery];
   }
 }

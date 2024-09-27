@@ -7,32 +7,48 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./footer.component.sass']
 })
 
-export class _footerComponent implements OnInit
+export class FooterComponent implements OnInit
 {
-  registerForm!: FormGroup;
-  submitted = false;
+  _registerForm!: FormGroup;
+  _submitted = false;
 
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit()
   {
-      this.registerForm = this.formBuilder.group({
+      this._registerForm = this.formBuilder.group({
           email: ['', [Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]]
       });
+
+      // Get the elements from the DOM
+      const liServices = document.querySelectorAll('.LiServices');
+      const dropdownContents = document.querySelectorAll('.DivDropdownServices');
+
+      // Loop through each 'liServices' and attach event listener
+      liServices.forEach((li, index) => {
+        const dropdownContent = dropdownContents[index]; // Get the corresponding dropdown content for this li
+        li.addEventListener('click', () => {
+          if (dropdownContent) {
+            dropdownContent.classList.toggle('show'); // Toggle visibility
+          }
+        });
+      });
+
+      
   }
 
   // convenience getter for easy access to form fields
-  get f() { return this.registerForm.controls; }
+  get f() { return this._registerForm.controls; }
 
   onSubmit()
   {
-      this.submitted = true;
+      this._submitted = true;
 
       // stop here if form is invalid
-      if (this.registerForm.invalid) {
+      if (this._registerForm.invalid) {
           return;
       }
 
-      alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value))
+      alert('SUCCESS!! :-)\n\n' + JSON.stringify(this._registerForm.value))
   }
 }
