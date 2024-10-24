@@ -1,0 +1,30 @@
+<main>
+  <div class="DivContainerLogin">
+    <div class="DivContentLogin">
+      <h1>LOGIN</h1>
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+          <div class="DivInputBox">
+            <label for="">Email</label>
+            <input type="email" placeholder="Email address" formControlName="email" [ngClass]="{ 'is-invalid': _submitted && f['email'].errors }">
+          </div>
+          <div *ngIf="_submitted && f['email'].errors" class="invalid-feedback">
+            <div *ngIf="f['email'].errors['required']">Email is required</div>
+            <div *ngIf="f['email'].errors['pattern']">Email must have symbol '&#64;' and '.'</div>
+            <div *ngIf="f['email'].errors['email']">Email must be a valid email address</div>
+          </div>
+          <div class="DivInputBox">
+            <label for="">Password</label>
+            <input [type]="changetype?'password':'text'" placeholder="Enter your password" formControlName="password" [ngClass]="{ 'is-invalid': _submitted && f['password'].errors }">
+            <span class="eyeicon" (click)="viewpass()"><i [ngClass]="visible?'fa-regular fa-eye':'fa-regular fa-eye-slash'"></i></span>
+          </div>
+          <div *ngIf="_submitted && f['password'].errors" class="invalid-feedback">
+            <div *ngIf="f['password'].errors['required']">Password is required</div>
+            <div *ngIf="f['password'].errors['pattern']">Password must be numbers</div>
+            <div *ngIf="f['password'].errors['minlength']">Password contains minimal 6 characters</div>
+          </div>
+          <button class="btn">Login</button>
+        </form>
+    </div>
+  </div>
+  <p>Do not have an account? <span><a href="">Sign Up</a></span></p>
+</main>

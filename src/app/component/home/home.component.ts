@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-@Component(
-{
-  selector: 'app-body',
-  templateUrl: './body.component.html',
-  styleUrls: ['./body.component.sass']
+@Component({
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.sass']
 })
-export class BodyComponent{
+export class HomeComponent implements OnInit {
   _arrayModelOfProducts = [
     {
       imageUrl: 'https://img.freepik.com/premium-photo/phone-with-colors-sun-it_273179-6661.jpg?ga=GA1.1.1811519676.1727150559&semt=ais_hybrid',
@@ -155,6 +155,24 @@ export class BodyComponent{
     this.startSlideShow();
 
     this.duplicateImages();
+
+    this._registerForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]]
+    });
+
+    // Get the elements from the DOM
+    const liServices = document.querySelectorAll('.LiServices');
+    const dropdownContents = document.querySelectorAll('.DivDropdownServices');
+
+    // Loop through each 'liServices' and attach event listener
+    liServices.forEach((li, index) => {
+      const dropdownContent = dropdownContents[index]; // Get the corresponding dropdown content for this li
+      li.addEventListener('click', () => {
+        if (dropdownContent) {
+          dropdownContent.classList.toggle('show'); // Toggle visibility
+        }
+      });
+    });
   }
 
   // Method to switch to the selected slide when a dot is clicked
@@ -235,5 +253,26 @@ export class BodyComponent{
 
   duplicateImages() {
     this._arrayModelOfGallery = [...this._arrayModelOfGallery, ...this._arrayModelOfGallery];
+  }
+
+
+  _registerForm!: FormGroup;
+  _submitted = false;
+
+  constructor(private formBuilder: FormBuilder) { }
+
+  // convenience getter for easy access to form fields
+  get f() { return this._registerForm.controls; }
+
+  onSubmit()
+  {
+      this._submitted = true;
+
+      // stop here if form is invalid
+      if (this._registerForm.invalid) {
+          return;
+      }
+
+      alert('SUCCESS!! :-)\n\n' + JSON.stringify(this._registerForm.value))
   }
 }

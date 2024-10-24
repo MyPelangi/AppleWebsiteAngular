@@ -1,4 +1,139 @@
-*
+header
+    display: flex
+    nav
+        position: fixed
+        background-color: rgba(22, 22, 23, .8)
+        width: 100%
+        top: 0
+        left: 0
+        font-family: Arial, Helvetica, sans-serif
+        z-index: 999
+        .UlNavList
+            position: relative
+            max-width: 900px
+            list-style-type: none
+            overflow: hidden
+            display: flex
+            justify-content: space-between
+            padding: 0px
+            align-items: center
+            padding: 13px 30px
+            margin: auto
+            .LiNavAppleIcon
+                  a
+                      text-decoration: none
+                  .AIcon
+                      color: white
+            .LiMenu
+              #menu-btn
+                position: absolute
+                top: -100%
+                left: -100%
+              .menu-icon
+                visibility: hidden
+              .DivListMenu
+                display: flex
+                justify-content: space-between
+                width: 758px
+                min-width: 700px
+                .LiNavSublistMenu
+                    a
+                        text-decoration: none
+                    .AMenu
+                        color: white
+                        font-size: 12px
+                    ul
+                        display: none
+                    .AMenu:hover
+            .LiNavSearch, .LiNavCart
+                  a
+                      text-decoration: none
+                  .AIcon
+                      color: white
+
+@media only screen and (max-width: 834px)
+  header
+    nav
+      .UlNavList
+        width: auto
+        gap: 20px
+        .LiNavAppleIcon
+            flex-grow: 2
+            order: 1
+        .LiMenu
+          order: 4
+          .DivListMenu
+            display: flex
+            flex-direction: column
+            position: fixed
+            top: 44px
+            left: 0
+            width: 100%
+            max-height: 0px
+            transition: max-height .2s ease-out
+            overflow: hidden
+            margin: 0
+            padding: 0px 30px
+            background-color: rgba(22, 22, 23, 0.8)
+            // z-index: 1000
+            .LiNavSublistMenu
+              justify-content: space-between
+              // text-align: center
+              padding: 10px
+              .Amenu
+                padding: 20px 20px
+                border-right: 1px solid #f4f4f4
+                background-color: #eee
+                width: 100%
+                text-align: center
+                font-size: 16px
+          .menu-btn
+            display: none
+          .menu-icon
+            cursor: pointer
+            display: flex
+            justify-content: flex-end
+            align-items: baseline
+            padding: 8px 0
+            position: relative
+            user-select: none
+            visibility: visible
+            .navicon
+              background: #fff
+              display: block
+              height: 2px
+              width: 18px
+              position: relative
+              &:before
+                top: 5px
+              &:after
+                top: -5px
+              &:before,
+              &:after
+                background: #fff
+                display: block
+                width: 100%
+                height: 100%
+                content: ''
+                position: absolute
+                transition: all .2s ease-out
+          .menu-btn:checked ~ .DivListMenu
+            max-height: 281px
+          .menu-btn:checked ~ .menu-icon .navicon
+            background: transparent
+          .menu-btn:checked ~ .menu-icon .navicon:before
+            transform: rotate(-45deg)
+          .menu-btn:checked ~ .menu-icon .navicon:after
+            transform: rotate(45deg)
+          .menu-btn:checked ~ .menu-icon .navicon:before,
+          .menu-btn:checked ~ .menu-icon .navicon:after
+            top: 0
+        .LiNavSearch
+          order: 2
+        .LiNavCart
+          order: 3
+
+body
     font-family: Arial, Helvetica, sans-serif
     section.SectionVisionPro
         width: 100%
@@ -360,7 +495,7 @@
                 animation-play-state: paused!important
 
 @media only screen and (max-width: 834px)
-    *
+    body
         section.SectionMovie
             width: 100%
             height: 398px
@@ -503,3 +638,185 @@
                             padding-left: 150px
             .DivGalleryTrack:hover
                 animation-play-state: paused!important
+
+
+footer
+    background: #f3f3f3
+    margin-top: 10px
+    font-family: Arial, Helvetica, sans-serif
+    .DivContainerFooter
+        padding: 10px 20px
+        max-width: 850px
+        margin: auto
+        small
+            color: #9b9b9b
+        .DivServices
+            display: flex
+            justify-content: space-between
+            margin-bottom: 20px
+            .DivServicesType
+                ul
+                    list-style-type: none
+                    padding: 0px
+                    .LiServices
+                        margin: 10px 0
+                        font-size: 12px
+                        strong
+                            color: #505050
+                        i
+                            display: none
+                    .DivDropdownServices
+                        li
+                            margin: 10px 0
+                            font-size: 12px
+                            a
+                                text-decoration: none
+                                color: #9b9b9b
+
+        .SectionSubscription
+          margin-bottom: 30px
+          p
+            font-size: 1rem
+            font-weight: bold
+            color: #333
+            margin-bottom: 15px
+            text-align: center
+          form
+            display: flex
+            justify-content: center
+            align-items: center
+            gap: 50px
+            margin: auto
+          .DivFormGroup
+            label
+              display: block
+              font-size: 0.8rem
+              color: #666
+              margin-bottom: 5px
+            .DivFormContent
+              display: flex
+              justify-content: center
+              gap: 20px
+              .TextSubscription
+                width: 300px
+                padding: 10px
+                font-size: 0.8rem
+                border: 1px solid #ddd
+                border-radius: 5px
+                transition: border-color 0.3s ease
+                &:focus
+                  border-color: #007bff
+                  outline: none
+                &.is-invalid
+                  border-color: #dc3545
+              .btn
+                padding: 10px 20px
+                font-size: 0.8rem
+                background-color: #007bff
+                border: none
+                border-radius: 4px
+                color: white
+                cursor: pointer
+                transition: background-color 0.3s ease
+                &:hover
+                  background-color: #0056b3
+            .invalid-feedback
+              color: #dc3545
+              font-size: 0.8rem
+              margin-top: 5px
+
+
+        section
+            margin-bottom: 10px
+            small
+              a
+                color: blue
+            hr
+                margin: 20px 0
+            .DivCopywrite
+                display: flex
+                justify-content: space-between
+                align-items: center
+                ul
+                    display: flex
+                    list-style-type: none
+                    gap: 10px
+                    padding: 0
+                    margin: 0
+                    li
+                        a
+                            text-decoration: none
+                            font-size: 12px
+                            color: #9b9b9b
+                a
+                    text-decoration: none
+                    font-size: 12px
+                    color: #9b9b9b
+
+
+@media only screen and (max-width: 834px)
+  footer
+    .DivContainerFooter
+      padding: 10px 20px
+      .DivServices
+            display: flex
+            flex-direction: column
+            .DivServicesType
+                ul
+                    border-bottom: 1px solid #9b9b9b
+                    margin: 0
+                    .LiServices
+                        display: flex
+                        justify-content: space-between
+                        cursor: pointer
+                        strong
+                            color: #505050
+                        i
+                            display: contents
+                            position: absolute
+                            right: 0
+                            margin: 15px
+                            transition: 0.3s ease
+                    .DivDropdownServices
+                        max-height: 0 // Start with max-height 0 */
+                        overflow: hidden // Hide overflowing content */
+                        transition: max-height 0.5s ease-out
+                        margin: 0
+                        li
+                            a
+                                text-decoration: none
+                                color: #9b9b9b
+                    .show
+                        max-height: 500px
+
+      .SectionSubscription
+        p
+            font-size: 0.8rem
+        form
+          .DivFormGroup
+            label
+            .DivFormContent
+              display: flex
+              flex-direction: column
+              justify-content: center
+              gap: 30px
+              .TextSubscription
+                width: auto
+          .invalid-feedback
+            position: relative
+            bottom: 68px
+
+      section
+        hr
+          display: none
+        .DivCopywrite
+          display: flex
+          flex-direction: column-reverse
+          justify-content: left
+          align-items: baseline
+          a
+            margin: 10px 0
+          small
+            bottom: 20px
+          ul
+            margin: 5px 0
